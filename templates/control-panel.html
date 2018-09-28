@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Kontrol Paneli - Makale Yuvası
+{% endblock title %}
+
+
+
+{% block container %}
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card mt-4" style="height: 100%;">
+                <h4 class="card-header-sm bg-info text-center text-white">İşlemler</h4>
+
+                <div class="card-body">
+                    <div class="list-group">
+                      <a href="/control-panel" class="list-group-item list-group-item-action {{ ozet_aktif }}">Özet</a>
+                      <a href="/siparis_olustur" class="list-group-item list-group-item-action {{ siris_olustur_aktif }}">Sipariş Oluştur</a>
+                      <a href="/makale_ekle" class="list-group-item list-group-item-action {{ makale_ekle_aktif }}">Makale Ekle</a>
+                      <a href="/aldigim_siparisler" class="list-group-item list-group-item-action {{ siparis_tamamla_aktif }}">Aldığım Siparişler</a>
+                      <a href="/verdigim_siparisler" class="list-group-item list-group-item-action {{ siparislerim_aktif }}">Verdiğim Siparişler</a>
+                      <a href="/settings" class="list-group-item list-group-item-action {{ hesap_ayarlari_aktif }}">Hesap Ayarları</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card mt-4" style="height: 100%;">
+                <h4 class="card-header-sm bg-success text-center text-white">Özet</h4>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Kullanıcı Adı</p>
+                            <p>Adı Soyadı</p>
+                            <p>Bakiye</p>
+                            <p>Verilmiş Sipariş Sayısı</p>
+                            <p>Alınmış Sipariş Sayısı</p>
+                            <p>Toplam Kazanılan Para</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>: {{ session.username }} </p>
+                            <p>: {{ session.first_name }} {{ session.last_name }}</p>
+                            <p>: {{ session.money }} <i class="fas fa-lira-sign"></i></p>
+                            <p>: {{ session.verilmis_siparis_sayisi }}</p>
+                            <p>: {{ session.alinmis_siparis_sayisi }}</p>
+                            <p>: {{ session.toplam_kazanilan_para }} <i class="fas fa-lira-sign"></i></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><small>Kullanıcı Adı Değiştirilemez!</small></p>
+                            <p><a href="/settings" class="btn-sm btn-info" style="text-decoration: none">Değiştir</a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

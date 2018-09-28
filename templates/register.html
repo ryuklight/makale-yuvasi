@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block container %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mx-auto mt-4" style="width: 500px; height: 350px;">
+                <h5 class="card-header bg-secondary">Kayıt Ol!</h5>
+                <div class="card-body">
+                    {% if form %}
+                        <form action="/register" method="post">
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Ad ve Soyad</span>
+                              </div>
+                              <input type="text" class="form-control" name="first_name" placeholder="İsim" value="{{ form.first_name.data }}">
+                              <input type="text" class="form-control" name="last_name" placeholder="Soyisim" value="{{ form.last_name.data }}">
+                            </div>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Email</span>
+                              </div>
+                              <input type="email" class="form-control" name="email" placeholder="name@example.com" value="{{ form.email.data }}">
+                            </div>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Kullanıcı Adı</span>
+                              </div>
+                              <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı" value="{{ form.username.data }}">
+                            </div>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Parola ve Parola Onay</span>
+                              </div>
+                              <input type="password" class="form-control" name="password" placeholder="Parola">
+                              <input type="password" class="form-control" name="confirm" placeholder="Parola Onay">
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                              <a href="" data-target="#kayit_sarti" data-toggle="modal" style="text-decoration: none;">Kayıt olma şartlarını</a>
+
+                              <input type="checkbox" class="custom-control-input" id="defaultChecked2" name="conditions">
+                              <label class="custom-control-label" for="defaultChecked2">okudum ve <strong>onaylıyorum</strong></label>
+                            </div>
+                            <input type="submit" class="btn btn-success mt-4">
+                            <div class="modal fade" id="kayit_sarti">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="model-header">
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Hüküm ve Koşullar!</h5>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Site kuralları maddeler halinde aşağıda listelenmiştir.
+                                            <br><br>
+                                            <ul>
+                                                <li>Yazarların ve Makale alıcılarının birbirlerini site harici başka bir ortama davet edip site dışı ticaret yapması kesinlikle <strong>yasaktır!</strong></li>
+                                                <li>Yazarların veya Makale alıcılarının site içinde hiç kimseyi rahatsız etmeye, uygunsuz davranışlar sergilemeye hakkı yoktur. Bu tür davranışlarda bulunan hesaplar geri dönüşü olmaksızın silinecek ve mevcut bakiyelerine el konacaktır.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    {% else %}
+                        <form action="/register" method="post">
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Ad ve Soyad</span>
+                          </div>
+                          <input type="text" class="form-control" name="first_name" placeholder="İsim">
+                          <input type="text" class="form-control" name="last_name" placeholder="Soyisim">
+                        </div>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Email</span>
+                          </div>
+                          <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                        </div>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Kullanıcı Adı</span>
+                          </div>
+                          <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
+                        </div>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Parola ve Parola Onay</span>
+                          </div>
+                          <input type="password" class="form-control" name="password" placeholder="Parola">
+                          <input type="password" class="form-control" name="confirm" placeholder="Parola Onay">
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <a href="" data-target="#kayit_sarti" data-toggle="modal" style="text-decoration: none;">Kayıt olma şartlarını</a>
+
+                          <input type="checkbox" class="custom-control-input" id="defaultChecked2" name="conditions">
+                          <label class="custom-control-label" for="defaultChecked2">okudum ve <strong>onaylıyorum</strong></label>
+                        </div>
+                        <input type="submit" class="btn btn-success mt-4">
+
+                        <div class="modal fade" id="kayit_sarti">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="model-header">
+                                        <h5 class="modal-title text-center" id="exampleModalLabel">Hüküm ve Koşullar!</h5>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        Site kuralları maddeler halinde aşağıda listelenmiştir.
+                                        <br><br>
+                                        <ul>
+                                            <li>Yazarların ve Makale alıcılarının birbirlerini site harici başka bir ortama davet edip site dışı ticaret yapması kesinlikle <strong>yasaktır!</strong></li>
+                                            <li>Yazarların veya Makale alıcılarının site içinde hiç kimseyi rahatsız etmeye, uygunsuz davranışlar sergilemeye hakkı yoktur. Bu tür davranışlarda bulunan hesaplar geri dönüşü olmaksızın silinecek ve mevcut bakiyelerine el konacaktır.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

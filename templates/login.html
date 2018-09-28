@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mx-auto mt-4" style="width: 500px; height: 350px;">
+                <h5 class="card-header bg-secondary">Giriş</h5>
+                <div class="card-body">
+                    {% from "includes/formhelpers.html" import render_field %}
+                    <form action="/login" method="post">
+                        {% if form %}
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Kullanıcı Adı</span>
+                                </div>
+                                <input type="text" class="form-control" name="username" placeholder="Username" value="{{ form.username.data }}">
+                            </div>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Parola</span>
+                              </div>
+                              <input type="password" class="form-control" name="password" placeholder="Parola">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success mt-4">Giriş Yap</button>
+                            </div>
+
+                        {% else %}
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="">Kullanıcı Adı</span>
+                                </div>
+                                <input type="text" class="form-control" name="username" placeholder="Username" >
+                            </div>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Parola</span>
+                              </div>
+                              <input type="password" class="form-control" name="password" placeholder="Parola">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success mt-4">Giriş Yap</button>
+                            </div>
+
+                        {% endif %}
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

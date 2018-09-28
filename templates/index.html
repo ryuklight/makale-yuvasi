@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Anasayfa - Makale Yuvası
+{% endblock %}
+
+
+
+{% block container %}
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="bg-secondary text-center text-dark" style="border-radius: 10px; height: 80px;">
+                <div class="text-light">
+
+                    <span class="h4">Freelance Çalışma</span>
+                    <i class="fas fa-lira-sign fa-3x mt-2"></i>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="bg-warning text-center text-dark" style="border-radius: 10px; height: 80px;">
+                <div>
+
+                    <span class="h4">%100 Özgün</span>
+                    <i class="fas fa-pencil-alt fa-3x mt-2"></i>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="bg-success text-center text-white" style="border-radius: 10px; height: 80px;">
+                <div>
+
+                    <span class="h5">Güvenli Alışveriş</span> <br>
+                    <i class="fas fa-handshake fa-3x ml-3 mt-2"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="height: 100px;"></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card" style="height: 170px; border-radius: 10px;">
+                <h5 class="text-center bg-info" style="border-radius: 10px; ">Mevcut Siparişler</h5>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Başlık</th>
+                                <th>Oluşturan</th>
+                                <th>Kelime Sayısı</th>
+                                <th>Süre</th>
+                                <th>Kategori</th>
+                                <th>Adet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for siparis in siparisler[0] %}
+                                <tr>
+                                    <td>{{ siparis.title }}</td>
+                                    <td>{{ siparis.author }}</td>
+                                    <td>{{ siparis.words_count }}</td>
+                                    <td>{{ siparis.gun }}</td>
+                                    <td>{{ siparis.category }}</td>
+                                    <td>{{ siparis.adet }}</td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
